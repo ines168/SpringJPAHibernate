@@ -35,13 +35,13 @@ public class Hardware {
 //        this.price = price;
 //    }
 
-    public Hardware(HardwareDTO hardwareDTO) {
-        this.name = hardwareDTO.getName();
-        this.type = hardwareDTO.getType();
-        this.code = hardwareDTO.getCode();
-        this.stock = hardwareDTO.getStock();
-        this.price = hardwareDTO.getPrice();
-    }
+//    public Hardware(HardwareDTO hardwareDTO) {
+//        this.name = hardwareDTO.getName();
+//        this.type = hardwareDTO.getType();
+//        this.code = hardwareDTO.getCode();
+//        this.stock = hardwareDTO.getStock();
+//        this.price = hardwareDTO.getPrice();
+//    }
 
 //    public String getName() {
 //        return name;

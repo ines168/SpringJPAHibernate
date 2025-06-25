@@ -33,13 +33,10 @@ public class HardwareController {
         return ResponseEntity.ok(hardwareService.findByCode(code).stream().toList());
     }
 
-
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @PostMapping
-//    public HardwareDTO save(@Valid @RequestBody final HardwareDTO command){
-//        return hardwareService.save(command)
-//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.CONFLICT, "Hardware with the same code already exists"));
-//    }
+    @PostMapping("/new")
+    public ResponseEntity<?> save(@Valid @RequestBody HardwareDTO hardwareDTO){
+        return ResponseEntity.ok(hardwareService.save(hardwareDTO));
+    }
 //
 //
 //
@@ -52,11 +49,11 @@ public class HardwareController {
 //    }
 //
 //
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    @DeleteMapping("{code}")
-//    public void delete(@PathVariable String code) {
-//        hardwareService.deleteByCode(code);
-//    }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable int id) {
+        hardwareService.deleteById(id);
+    }
 
 
 }

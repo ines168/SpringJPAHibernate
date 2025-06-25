@@ -31,4 +31,37 @@ public class HardwareServiceImpl implements HardwareService{
         return hardwareRepository.findByCode(code).stream().map(HardwareDTO::new).toList();
     }
 
+    @Override
+    public HardwareDTO save(HardwareDTO hardwareDTO) {
+        return mapToDTO(hardwareRepository.save(mapToEntity(hardwareDTO)));
+    }
+
+    @Override
+    public void deleteById(int id) {
+        hardwareRepository.deleteById(id);
+    }
+
+    private HardwareDTO mapToDTO(Hardware hardware){
+        HardwareDTO hardwareDTO = new HardwareDTO();
+
+        hardwareDTO.setName(hardware.getName());
+        hardwareDTO.setCode(hardware.getCode());
+        hardwareDTO.setStock(hardware.getStock());
+        hardwareDTO.setPrice(hardware.getPrice());
+        hardwareDTO.setType(hardware.getType().getName());
+
+        return  hardwareDTO;
+    }
+
+    private Hardware mapToEntity(HardwareDTO hardwareDTO){
+        Hardware hardware = new Hardware();
+        hardware.setName(hardwareDTO.getName());
+        hardware.setCode(hardwareDTO.getCode());
+        hardware.setStock(hardwareDTO.getStock());
+        hardware.setPrice(hardwareDTO.getPrice());
+        hardware.setType(typeRepository.findByName(hardwareDTO.getType()));
+
+        return  hardware;
+    }
+
 }

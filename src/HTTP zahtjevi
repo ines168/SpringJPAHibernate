@@ -1,0 +1,18 @@
+GET:
+http://localhost:8082/hardware
+http://localhost:8082/hardware/1234561 (findByCode)
+http://localhost:8082/type
+http://localhost:8082/type/1 (findById)
+
+POST:
+http://localhost:8082/hardware/new
+{
+  "name": "Intel Core i9-14900K",
+  "type": "CPU",
+  "code": "ABC1234",
+  "stock": 10,
+  "price": 699.99
+}
+
+DELETE:
+http://localhost:8082/hardware/1

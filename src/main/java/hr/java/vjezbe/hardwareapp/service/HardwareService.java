@@ -12,4 +12,8 @@ public interface HardwareService {
 
     List<HardwareDTO> findByCode(String code);
 
+    HardwareDTO save(HardwareDTO hardwareDTO);
+
+    void deleteById(int id);
+
 }
