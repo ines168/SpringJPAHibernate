@@ -1,0 +1,16 @@
+CREATE TABLE Type
+(
+    id IDENTITY PRIMARY KEY,
+    name        VARCHAR(50)    NOT NULL
+);
+
+CREATE TABLE Hardware
+(
+    id IDENTITY PRIMARY KEY,
+    code VARCHAR(100) NOT NULL UNIQUE,
+    name VARCHAR(100) NOT NULL,
+    typeId INT, FOREIGN KEY (typeId) REFERENCES Type(id),
+    stock INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);
+
